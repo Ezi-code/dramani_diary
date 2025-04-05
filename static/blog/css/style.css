@@ -1,0 +1,491 @@
+/*--------------------------------------------------------------
+   Global Settings
+--------------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    padding: 0 150px;
+}
+
+
+/*--------------------------------------------------------------
+   Navigation Bar
+--------------------------------------------------------------*/
+.main-nav {
+    background-color: #2c3e50;
+    padding: 30px 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-nav li {
+    margin: 0 15px;
+}
+
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #d4ac0d;
+}
+
+.main-nav a.active {
+    color: #d4ac0d;
+    /* Gold accent for active link */
+    border-bottom: 2px solid #d4ac0d;
+}
+
+/*--------------------------------------------------------------
+   Header & Hero Section
+--------------------------------------------------------------*/
+.hero_section {
+    background-image: url("../images/background1.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    text-align: left;
+    border-radius: 8px;
+    margin: 20px 0;
+    height: 400px;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
+}
+
+.hero_section h2 {
+    font-size: 3.5em;
+    color: #e7e3e3;
+}
+
+.hero_section p {
+    font-size: 1.2em;
+
+    color: #ffffff;
+
+}
+
+/*--------------------------------------------------------------
+   Activity Section
+--------------------------------------------------------------*/
+.activity_section {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: left;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
+}
+
+.activity_cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.card {
+    background-color: #ffffff;
+    color: #2c3e50;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
+    transition: transform 0.3s;
+    flex: 1 1 300px;
+    margin: 0;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.card h4 {
+    font-size: 1.3em;
+    color: #2c3e50;
+    background-color: #d4ac0d;
+    /* Gold accent */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card_footer_btn {
+    background-color: #8b7000;
+    /* Gold accent */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/*--------------------------------------------------------------
+   Mission Section (Styled like Activity Section)
+--------------------------------------------------------------*/
+.mission {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.mission_content {
+    background-color: #ffffff;
+    color: #240202;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
+    transition: transform 0.3s;
+    flex: 1 1 300px;
+    margin: 0;
+}
+
+.mission_content:hover {
+    transform: scale(1.05);
+}
+
+.mission_content h2 {
+    font-size: 1.5em;
+    color: #2c3e50;
+    text-decoration: underline;
+    text-decoration-color: #d4ac0d;
+    /* Gold accent underline */
+    text-decoration-thickness: 5px;
+    margin-bottom: 10px;
+}
+
+.mission_content p {
+    font-size: 1em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/*--------------------------------------------------------------
+   About Section
+--------------------------------------------------------------*/
+.about {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about_content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.about_content h2 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.about_content h2::after {
+    content: '';
+    width: 50px;
+    height: 3px;
+    background-color: #d4ac0d;
+    /* Gold accent */
+    display: block;
+    margin: 10px auto 0;
+}
+
+.about_content p {
+    font-size: 1.1em;
+    color: #2c3e50;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+/*--------------------------------------------------------------
+   Contact Section
+--------------------------------------------------------------*/
+.contact_section {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
+}
+
+.contact_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact_form form {
+    max-width: 600px;
+    width: 100%;
+    /* Increased from a smaller percentage */
+
+}
+
+.contact_form h2 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    text-decoration: underline;
+    text-decoration-color: #d4ac0d;
+    text-decoration-thickness: 5px;
+    margin-bottom: 20px;
+}
+
+.contact_form form input,
+.contact_form form textarea {
+    width: 100%;
+    /* Increased from a smaller percentage */
+    max-width: 500px;
+    /* Ensures the elements don't get too wide */
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.contact_form form input:hover,
+.contact_form form textarea:hover {
+    color: #2c3e50;
+    border-color: #d4ac0d;
+    /* Gold accent */
+    transition: border-color 0.3s;
+}
+
+.contact_form form button {
+    width: 40%;
+    max-width: 200px;
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.3em;
+    transition: background-color 0.3s;
+}
+
+.contact_form form button:hover {
+    background-color: #34495e;
+    color: #f8f8f8;
+}
+
+/*--------------------------------------------------------------
+   Footer
+--------------------------------------------------------------*/
+footer {
+    text-align: center;
+    background-color: #2c3e50;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+footer .social-links {
+    margin: 10px 0;
+}
+
+footer .social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+footer .social-links a:hover {
+    text-decoration: underline;
+}
+
+footer .subscription-form {
+    margin-top: 20px;
+}
+
+footer .subscription-form h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+footer .subscription-form input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    width: 250px;
+}
+
+footer .subscription-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #d4ac0d;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 10px;
+}
+
+footer .subscription-form button:hover {
+    background-color: #c39c08;
+}
+
+/*--------------------------------------------------------------
+   Media Queries
+--------------------------------------------------------------*/
+@media screen and (max-width: 1024px) {
+
+    /* Overall layout adjustments for tablets */
+    body {
+        max-width: 1024px;
+        padding: 0 30px;
+        margin: 0 auto;
+    }
+
+    .hero_section {
+        height: auto;
+        padding: 15px;
+    }
+
+    .hero_section h2 {
+        font-size: 2.5em;
+    }
+
+    .hero_section p {
+        font-size: 1em;
+    }
+
+    /* Two-column layout for activity/mission cards */
+    .activity_cards,
+    .mission {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card,
+    .mission_content {
+        flex: 1 1 calc(50% - 20px);
+        margin: 10px;
+    }
+
+    /* Card image adjustments */
+    .card img {
+        width: 100%;
+        height: auto;
+        max-height: 220px;
+        /* Limit height to prevent oversized images */
+        object-fit: cover;
+    }
+
+    .activity_section h2,
+    .contact_form h2 {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    /* Layout adjustments for smaller tablets/small screens */
+    body {
+        padding: 0 10px;
+        max-width: 900px;
+    }
+
+    /* Single-column layout for cards */
+    .activity_cards,
+    .mission {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card,
+    .mission_content {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+
+    /* Card image adjustments */
+    .card img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        /* Slightly smaller for small screens */
+        object-fit: cover;
+    }
+
+    .contact_form form input,
+    .contact_form form textarea,
+    .contact_form form button {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    /* Layout adjustments for mobile devices */
+    .hero_section h2 {
+        font-size: 2.2em;
+    }
+
+    .hero_section p {
+        font-size: 1em;
+    }
+
+    .activity_section h2,
+    .contact_form h2 {
+        font-size: 1.8em;
+    }
+
+    /* Card image adjustments */
+    .card img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        /* Smaller maximum height for mobile */
+        object-fit: cover;
+    }
+}

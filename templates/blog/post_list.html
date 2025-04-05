@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<h2>All Posts</h2>
+{% for post in posts %}
+
+
+
+<article class="blog-post body">
+
+    <div class="cards">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+                <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+                <p class="card-footer">
+                    <a href="{% url 'post_update' post.pk %}">Edit</a> | <a
+                        href="{% url 'post_delete' post.pk %}">Delete</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</article>
+{% empty %}
+<p>No posts available.</p>
+{% endfor %}
+{% endblock %}
