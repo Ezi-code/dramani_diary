@@ -25,6 +25,10 @@ class UserRegistrationView(View):
         # send_confirmation_email(new_user)
         return render(request, "accounts/registration_success.html", {"user": new_user})
 
+    def get(self, request):
+        """Render the registration page."""
+        return render(request, "accounts/accounts_signup.html")
+
 
 class UserLoginView(View):
     """View to handle user login."""
@@ -40,12 +44,14 @@ class UserLoginView(View):
         else:
             # Invalid login
             return render(
-                request, "accounts/login.html", {"error": "Invalid credentials"}
+                request,
+                "accounts/accounts_login.html",
+                {"error": "Invalid credentials"},
             )
 
     def get(self, request):
         """Render the login page."""
-        return render(request, "accounts/login.html")
+        return render(request, "accounts/accounts_login.html")
 
 
 class UserLogoutView(View):

@@ -5,7 +5,6 @@ from django.utils import timezone
 from core.models import TimeStampedModel
 
 
-# Create your models here.
 class BlogPage(TimeStampedModel):
     """Blog page model."""
 
