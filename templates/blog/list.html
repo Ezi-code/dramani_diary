@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<section class="blog-hero-section">
+    <div>
+        <h2>welcome to our blogs page</h2>
+        <p>This is the right place to be if you want to learn more about how to improve your relationship with God.
+        </p>
+    </div>
+</section>
+<p>
+<form class="blog-search-form" action="" method="get">
+    {% csrf_token %}
+    <input type="search" name="search" placeholder="Search" id="">
+    <button type="submit">Search</button>
+</form>
+</p>
+{% for post in posts %}
+<section class="blog-post body">
+    <div class="cards">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title"><a href="{% url 'blogs:detail' post.pk %}">{{ post.title }}</a></h3>
+                <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+                <p class="card-footer">
+                    <a href="{% url 'blogs:update' post.pk %}">Edit</a> | <a
+                        href="{% url 'blogs:delete' post.pk %}">Delete</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% empty %}
+
+
+<p>No posts available.</p>
+{% endfor %}
+{% endblock %}

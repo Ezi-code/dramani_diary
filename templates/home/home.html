@@ -85,7 +85,8 @@
     </section>
     <section class="contact_section">
         <div class="contact_form">
-            <form action="" method="post">
+            <form action="." method="post">
+                {% csrf_token %}
                 <h2>Contact Us</h2>
                 <p><input type="text"></p>
                 <p><input type="email" name="" id=""></p>

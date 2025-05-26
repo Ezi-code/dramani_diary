@@ -7,28 +7,28 @@ from django.views.generic import (
     DeleteView,
 )
 
-from .models import BlogPage
+from .models import BlogPost
 
 
 class PostListView(ListView):
     """post list view."""
 
-    model = BlogPage
-    template_name = "blog/home.html"
+    model = BlogPost
+    template_name = "blog/list.html"
     context_object_name = "posts"
 
 
 class PostDetailView(DetailView):
     """post detail view."""
 
-    model = BlogPage
+    model = BlogPost
     template_name = "blog/post_detail.html"
 
 
 class PostCreateView(CreateView):
     """"""
 
-    model = BlogPage
+    model = BlogPost
     template_name = "blog/post_form.html"
     fields = ["title", "content"]
     success_url = reverse_lazy("post_list")
@@ -37,7 +37,7 @@ class PostCreateView(CreateView):
 class PostUpdateView(UpdateView):
     """"""
 
-    model = BlogPage
+    model = BlogPost
     template_name = "blog/post_form.html"
     fields = ["title", "content"]
     success_url = reverse_lazy("post_list")
@@ -46,6 +46,6 @@ class PostUpdateView(UpdateView):
 class PostDeleteView(DeleteView):
     """"""
 
-    model = BlogPage
+    model = BlogPost
     template_name = "blog/post_confirm_delete.html"
     success_url = reverse_lazy("post_list")

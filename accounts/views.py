@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views import View
 from accounts.models import UserModel
 from django.contrib.auth import authenticate, login, logout
+from .forms import UserRegisterForm, UserLoginForm
 
 
 class UserRegistrationView(View):
@@ -27,7 +28,8 @@ class UserRegistrationView(View):
 
     def get(self, request):
         """Render the registration page."""
-        return render(request, "accounts/accounts_signup.html")
+        form = UserRegisterForm()
+        return render(request, "accounts/signup.html", {"form": form})
 
 
 class UserLoginView(View):
@@ -35,6 +37,7 @@ class UserLoginView(View):
 
     def post(self, request):
         """Render the login page."""
+        form = UserLoginForm()
         email = request.GET.get("email")
         password = request.GET.get("password")
         user = authenticate(request, email=email, password=password)
@@ -45,13 +48,14 @@ class UserLoginView(View):
             # Invalid login
             return render(
                 request,
-                "accounts/accounts_login.html",
-                {"error": "Invalid credentials"},
+                "accounts/login.html",
+                {"error": "Invalid credentials", "form": form},
             )
 
     def get(self, request):
         """Render the login page."""
-        return render(request, "accounts/accounts_login.html")
+        form = UserLoginForm()
+        return render(request, "accounts/login.html", {"form": form})
 
 
 class UserLogoutView(View):

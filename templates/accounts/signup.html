@@ -7,11 +7,12 @@
 <div class="auth-container">
     <section class="signup">
         <h1>Sign Up</h1>
-        <form method="post" action="{% url 'accounts:register' %}">
+        <form method="post" action="{% url 'accounts:signup' %}">
             {% csrf_token %}
-            <p><input type="email" name="email" id="" placeholder="Email" required></p>
-            <p><input type="password" name="password" id="" placeholder="Password" required></p>
-            <p><input type="password" name="confirm_password" id="" placeholder="Confirm Password" required></p>
+            <p>{{form.username}}</p>
+            <p>{{form.email}}</p>
+            <p>{{form.password}}</p>
+            <p>{{form.confirm_password}}</p>
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
         <p id="login-link">Already have an account? <a href="{% url 'accounts:login' %}">Login here</a>.</p>
