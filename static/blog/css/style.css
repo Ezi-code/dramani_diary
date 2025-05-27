@@ -754,7 +754,7 @@ footer .subscription-form button:hover {
 }
 
 .blog-post-card img {
-    width: 100%;
+    width: 30%;
     height: 200px;
     object-fit: cover;
 }
@@ -766,9 +766,10 @@ footer .subscription-form button:hover {
     flex-direction: column;
 }
 
-.blog-post-card h3 {
+.card-title a {
     font-size: 1.5em;
     color: #2c3e50;
+    text-decoration: none;
 }
 
 .blog-search-form {

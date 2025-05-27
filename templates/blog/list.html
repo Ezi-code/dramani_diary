@@ -19,14 +19,20 @@
 {% for post in posts %}
 <section class="blog-post body">
     <div class="cards">
-        <div class="card">
+        <div class="blog-post-card">
             <div class="card-body">
-                <h3 class="card-title"><a href="{% url 'blogs:detail' post.pk %}">{{ post.title }}</a></h3>
+                {% if post.image %}
+                <img src="{{ post.image.url }}" alt="post image" class="card-img-top" width="20" height="20">
+                {% else %}
+                {% endif %}
+                <h3 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                 <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+                {% if request.user.id == post.author.id %}
                 <p class="card-footer">
                     <a href="{% url 'blogs:update' post.pk %}">Edit</a> | <a
                         href="{% url 'blogs:delete' post.pk %}">Delete</a>
                 </p>
+                {% endif %}
             </div>
         </div>
     </div>

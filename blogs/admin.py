@@ -1,5 +1,7 @@
+"""blog admin file."""
+
 from django.contrib import admin
-from blogs.models import BlogPost
+from blogs.models import Blog
 
 
 class BlogPageAdmin(admin.ModelAdmin):
@@ -8,5 +10,5 @@ class BlogPageAdmin(admin.ModelAdmin):
     list_filter = ["published_date", "author", "featured_by"]
 
 
-admin.site.register(BlogPost, BlogPageAdmin)
+admin.site.register(Blog, BlogPageAdmin)
 # admin.site.register(BlogPe, BlogPageAdmin)

@@ -5,45 +5,44 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('blogs', '0001_initial'),
+        ("blogs", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='blogpage',
-            name='author',
+            model_name="blogpage",
+            name="author",
             field=models.CharField(max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='blogpage',
-            name='featured_by',
+            model_name="blogpage",
+            name="featured_by",
             field=models.CharField(max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='blogpage',
-            name='image',
-            field=models.ImageField(null=True, upload_to='blog_images'),
+            model_name="blogpage",
+            name="image",
+            field=models.ImageField(null=True, upload_to="blog_images"),
         ),
         migrations.AddField(
-            model_name='blogpage',
-            name='is_deleted',
+            model_name="blogpage",
+            name="is_deleted",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='blogpage',
-            name='is_featured',
+            model_name="blogpage",
+            name="is_featured",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='blogpage',
-            name='is_published',
+            model_name="blogpage",
+            name="is_published",
             field=models.BooleanField(default=True),
         ),
         migrations.AddField(
-            model_name='blogpage',
-            name='published_date',
+            model_name="blogpage",
+            name="published_date",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
     ]

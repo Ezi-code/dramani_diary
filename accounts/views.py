@@ -1,10 +1,11 @@
 """accounts views."""
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from accounts.models import UserModel
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegisterForm, UserLoginForm
+from django.urls import reverse
 
 
 class UserRegistrationView(View):
@@ -24,7 +25,7 @@ class UserRegistrationView(View):
         new_user.save()
         # You can also send a confirmation email here
         # send_confirmation_email(new_user)
-        return render(request, "accounts/registration_success.html", {"user": new_user})
+        return redirect("accounts:login")
 
     def get(self, request):
         """Render the registration page."""
@@ -38,19 +39,21 @@ class UserLoginView(View):
     def post(self, request):
         """Render the login page."""
         form = UserLoginForm()
-        email = request.GET.get("email")
-        password = request.GET.get("password")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        print(email, password)
         user = authenticate(request, email=email, password=password)
-        if user is not None:
-            login(request, user)
-            return render(request, "accounts/login_success.html", {"user": user})
-        else:
-            # Invalid login
-            return render(
-                request,
-                "accounts/login.html",
-                {"error": "Invalid credentials", "form": form},
-            )
+        try:
+            if user is not None:
+                print("User authenticated successfully.")
+                login(request, user)
+                return redirect(
+                    "blogs:list"
+                )  # Redirect to the blog list page after login
+        except Exception as e:
+            print(f"Error during authentication: {e}")
+
+        return redirect("accounts:login")
 
     def get(self, request):
         """Render the login page."""
@@ -64,4 +67,4 @@ class UserLogoutView(View):
     def get(self, request):
         """Handle user logout."""
         logout(request)
-        return render(request, "accounts/logout.html")
+        return redirect("home:home")

@@ -6,7 +6,7 @@ from core.models import TimeStampedModel
 from django.db import models
 
 
-class UserModel(TimeStampedModel, AbstractBaseUser):
+class UserModel(TimeStampedModel, AbstractBaseUser, PermissionsMixin):
     """user model."""
 
     username = models.CharField(max_length=150, unique=True)
