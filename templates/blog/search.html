@@ -10,12 +10,11 @@
     </div>
 </section>
 <p>
-    <form class="blog-search-form" action="{% url 'blogs:search' %}" method="get">
-        <input type="search" name="query" placeholder="Search">
-        <button type="submit">Search</button>
-    </form>
+<form class="blog-search-form" action="{% url 'blogs:search' %}" method="get">
+    <input type="search" name="query" placeholder="Search" id="">
+    <button type="submit">Search</button>
+</form>
 </p>
-
 {% for post in posts %}
 <section class="blog-post body">
     <div class="cards">
@@ -37,7 +36,8 @@
         </div>
     </div>
 </section>
+
 {% empty %}
-<p>No posts available.</p>
+<p>No posts found.</p>
 {% endfor %}
 {% endblock %}
