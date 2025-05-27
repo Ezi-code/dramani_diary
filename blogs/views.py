@@ -1,3 +1,5 @@
+"""blog views module."""
+
 from django.urls import reverse_lazy
 from django.views.generic import (
     ListView,
@@ -6,7 +8,9 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
+from django.db.models import Q
 
+from .filters import BlogFilter
 from .models import Blog
 
 
@@ -27,7 +31,7 @@ class PostDetailView(DetailView):
 
 
 class PostCreateView(CreateView):
-    """"""
+    """post create view."""
 
     model = Blog
     template_name = "blog/form.html"
@@ -36,7 +40,7 @@ class PostCreateView(CreateView):
 
 
 class PostUpdateView(UpdateView):
-    """"""
+    """post update view."""
 
     model = Blog
     template_name = "blog/form.html"
@@ -45,8 +49,18 @@ class PostUpdateView(UpdateView):
 
 
 class PostDeleteView(DeleteView):
-    """"""
+    """post delete view."""
 
     model = Blog
     template_name = "blog/confirm_delete.html"
     success_url = reverse_lazy("post_list")
+
+
+class SearchView(ListView):
+    """Search view for blog posts."""
+
+    model = Blog
+    template_name = "blog/search.html"
+    context_object_name = "posts"
+    filterset_class = BlogFilter
+    paginate_by = 10

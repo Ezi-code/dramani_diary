@@ -68,3 +68,14 @@ class UserLogoutView(View):
         """Handle user logout."""
         logout(request)
         return redirect("home:home")
+
+
+class UserProfileView(View):
+    """View to handle user profile."""
+
+    def get(self, request):
+        """Render the user profile page."""
+        user = request.user
+        if not user.is_authenticated:
+            return redirect("accounts:login")
+        return render(request, "accounts/profile.html", {"user": user})
