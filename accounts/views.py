@@ -79,3 +79,37 @@ class UserProfileView(View):
         if not user.is_authenticated:
             return redirect("accounts:login")
         return render(request, "accounts/profile.html", {"user": user})
+
+
+class PasswordResetView(View):
+    """View to handle password reset."""
+
+    def get(self, request):
+        """Render the password reset page."""
+        return render(request, "accounts/password_reset.html")
+
+    def post(self, request):
+        """Handle password reset logic."""
+        email = request.POST.get("email")
+        # Here you would typically send a password reset email
+        # send_password_reset_email(email)
+        return redirect("accounts:login")
+
+
+class PasswordChangeView(View):
+    """View to handle password change."""
+
+    def get(self, request):
+        """Render the password change page."""
+        return render(request, "accounts/password_change.html")
+
+    def post(self, request):
+        """Handle password change logic."""
+        user = request.user
+        if not user.is_authenticated:
+            return redirect("accounts:login")
+
+        new_password = request.POST.get("new_password")
+        user.set_password(new_password)
+        user.save()
+        return redirect("accounts:login")

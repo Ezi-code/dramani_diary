@@ -1,31 +1,32 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-    <title>Profile</title>
+<title>Profile</title>
 {% endblock title %}
 
 {% block content %}
-    <section class="profile-section">
-        <div class="profile-header">
-            <h1>{{ user.username }}'s Profile</h1>
-        </div>
-
-        <div class="profile-details">
-            <p>Email: {{ user.email }}</p>
-            <p>Joined: {{ user.date_joined|date:"F j, Y" }}</p>
-        </div>
-        {% if user.profile.image %}
-            <img src="{{ user.profile.image.url }}" alt="Profile Image" class="profile-image">
-        {% else %}
-            <p>No profile image available.</p>
-        {% endif %}
-     <div class="profile-actions">
-        <button>
-            <a href="#" class="btn btn-primary">Edit Profile</a>
-        </button>
-        <button>
-            <a href="#" class="btn btn-secondary">Change Password</a>
-        </button>
+<section class="profile-section">
+    <div class="profile-header">
+        <h1>{{ user.username }}'s Profile</h1>
     </div>
-    </section>
+
+    <div class="profile-details">
+        {% if user.profile.image %}
+        <img class="profile-image" src="{{ user.profile.image.url }}" alt="Profile Image">
+        {% else %}
+        <img class="profile-image" src="../../media/blog_images/profile.jpg" alt="Default Profile Image">
+        {% endif %}
+        <p>{{ user.username }}</p>
+        <p>{{ user.email }}</p>
+        <div class="profile-actions">
+            <button>
+                <a href="#" class="btn btn-primary">Edit Profile</a>
+            </button>
+            <button>
+                <a href="#" class="btn btn-secondary">Change Password</a>
+            </button>
+        </div>
+    </div>
+
+</section>
 {% endblock content %}
